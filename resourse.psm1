@@ -47,5 +47,3 @@ function Check-SystemResources {
     Get-DiskUsage
     Get-NetworkUsage
 } 
-
-Check-SystemResources
