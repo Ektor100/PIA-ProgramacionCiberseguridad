@@ -1,7 +1,7 @@
-New-ModuleManifest -path "C:\Users\ektor\Documents\GitHub\PIA-ProgramacionCiberseguridad\resourse.psd1" -Rootmodule "C:\Users\ektor\Documents\GitHub\PIA-ProgramacionCiberseguridad\resourse.psm1"
-Import-Module "C:\Users\ektor\Documents\GitHub\PIA-ProgramacionCiberseguridad\resourse.psm1"
+New-ModuleManifest -path ".\resourse.psd1" -Rootmodule ".\resourse.psm1"
+Import-Module ".\resourse.psm1"
 Get-Module Check-SystemResources
-Write-Host "Gracias por iniciar este programa el script se esta ejecutando... "
+#Write-Host "Gracias por iniciar este programa el script se esta ejecutando... "
 
 do {
     Write-Host "Escoja que funcion quiere iniciar: "
