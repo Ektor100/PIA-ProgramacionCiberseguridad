@@ -1,12 +1,12 @@
 $fileOutput = Join-Path (Get-Location) "SecurePasswords.txt"
 
 # Feature to generate strong passwords
-Function Generate-SecurePassword {
+function Generate-SecurPassword {
     param (
         [int]$PasswordLength
     )
 
-    $chars = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/"
+    $chars = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/"
     $random = New-Object System.Random
     $password = -join (1..$PasswordLength | ForEach-Object { $chars[$random.Next($chars.Length)] })
     return $password
@@ -22,10 +22,10 @@ Function Save-Password {
 
     if (-not (Test-Path $fileOutput)) {
 
-        "Usuario:`nContraseña:`nSitio Web o Aplicacion:`n" | Out-File -FilePath $fileOutput -Encoding utf8
+        "Usuario:`nContrasena:`nSitio Web o Aplicacion:`n" | Out-File -FilePath $fileOutput -Encoding utf8
     }
 
-    $passwordEntry = "Usuario: $Username`nContraseña: $Password`nSitio Web o Aplicacion: $Site`n`n"
+    $passwordEntry = "Usuario: $Username`nContrasena: $Password`nSitio Web o Aplicacion: $Site`n`n"
     $passwordEntry | Out-File -FilePath $fileOutput -Append -Encoding utf8
 }
 
@@ -35,7 +35,7 @@ Function Start-PasswordManagement {
   
         $validLength = $false
         while (-not $validLength) {
-            $lengthInput = Read-Host "Ingrese la longitud de la contraseña (entre 8 y 16 caracteres)"
+            $lengthInput = Read-Host "Ingrese la longitud de la contrasena (entre 8 y 16 caracteres)"
             $length = [int]$lengthInput
 
             if ($length -ge 8 -and $length -le 16) {
@@ -46,16 +46,16 @@ Function Start-PasswordManagement {
         }
 
         $generatedPassword = Generate-SecurePassword -PasswordLength $length
-        Write-Output "Contraseña generada: $generatedPassword"
+        Write-Output "Contrasena generada: $generatedPassword"
 
         $username = Read-Host "Ingrese el nombre de usuario"
-        $site = Read-Host "Ingrese el nombre del sitio web o aplicación"
+        $site = Read-Host "Ingrese el nombre del sitio web o aplicacion"
 
 
         Save-Password -Username $username -Password $generatedPassword -Site $site
         Write-Output "Datos almacenados en $fileOutput"
 
-        $generateAnother = Read-Host "¿Quieres generar otra contraseña? (S/N)"
+        $generateAnother = Read-Host "¿Quieres generar otra contrasena? (S/N)"
         if ($generateAnother -ne "S" -and $generateAnother -ne "s") {
             $generateAnother = $false
         } else {
