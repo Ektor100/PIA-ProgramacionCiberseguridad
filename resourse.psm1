@@ -40,7 +40,7 @@ function Get-NetworkUsage {
 }
 
 # Main function to review system resource usage
-function Check-SystemResources {
+function Get-SystemResources {
     Write-Host "Revisando uso de recursos del sistema..."
     Get-CPUUsage
     Get-RAMUsage

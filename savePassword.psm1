@@ -1,7 +1,7 @@
 $fileOutput = Join-Path (Get-Location) "SecurePasswords.txt"
 
 # Feature to generate strong passwords
-function Generate-SecurPassword {
+function Add-SecurPassword {
     param (
         [int]$PasswordLength
     )
@@ -16,7 +16,7 @@ function Generate-SecurPassword {
 Function Save-Password {
     param (
         [string]$Username,
-        [string]$Password,
+        [string]$PSWD ,
         [string]$Site
     )
 
@@ -25,7 +25,7 @@ Function Save-Password {
         "Usuario:`nContrasena:`nSitio Web o Aplicacion:`n" | Out-File -FilePath $fileOutput -Encoding utf8
     }
 
-    $passwordEntry = "Usuario: $Username`nContrasena: $Password`nSitio Web o Aplicacion: $Site`n`n"
+    $passwordEntry = "Usuario: $Username`nContrasena: $PSWD`nSitio Web o Aplicacion: $Site`n`n"
     $passwordEntry | Out-File -FilePath $fileOutput -Append -Encoding utf8
 }
 
@@ -45,7 +45,7 @@ Function Start-PasswordManagement {
             }
         }
 
-        $generatedPassword = Generate-SecurePassword -PasswordLength $length
+        $generatedPassword = Add-SecurPassword -PasswordLength $length
         Write-Output "Contrasena generada: $generatedPassword"
 
         $username = Read-Host "Ingrese el nombre de usuario"

@@ -6,7 +6,7 @@ Import-Module ".\savePassword.psm1"
 #Import-Module ".\Evidencia8_modulo1.psm1" 
 #New-ModuleManifest -path ".\Evidencia8_modulo2.psd1" -RootModule "Evidencia8_modulo2.psm1" -Author "Grupo6" -Description "descrpcion del modulo" -ModuleVersion "1.0.0."
 #Import-Module ".\Evidencia8_modulo2.psm1"
-Get-Module Check-SystemResources, Start-PasswordManagement -ErrorAction SilentlyContinue
+Get-Module Get-SystemResources, Start-PasswordManagement -ErrorAction SilentlyContinue
 Write-Host "===================================="
 Write-Host "Gracias por iniciar este programa el script se esta ejecutando... "
 
@@ -23,7 +23,7 @@ do {
     switch ($option) {
         1 {Write-Host "Funcion no habilitada"}
         2 {Write-Host "Funcion no habilitada"}
-        3 {Check-SystemResources}
+        3 {Get-SystemResources}
         4 {Start-PasswordManagement} 
         5 {
             Write-Host "Finalizando..."
