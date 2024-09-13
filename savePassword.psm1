@@ -66,5 +66,4 @@ Function Start-PasswordManagement {
     Write-Output "El proceso de generar y almacenar contraseñas a finalizado"
 }
 
-# we esta es la funcion que se importa 
 Start-PasswordManagement
