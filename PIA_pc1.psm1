@@ -41,33 +41,3 @@ function Api_HashVer { 	Write-Host "vamos a hacer un listado de hashes para el r
 #}
 
 
-#function Api_HashVer {
-#    Write-Host "Vamos a hacer un listado de hashes para el record de su Sistema de archivos locales"
-#    Write-Host "Favor de mencionar de donde desea hacer el escaneo de hashes SHA256 para su análisis con VirusTotal"
-#
-#    Get-FileHash -Path .\* -Algorithm SHA256 | Export-Csv -Path .\hashes.csv
-
-    
-#    $Hash_Scan = Import-Csv ".\hashes.csv"
-#
-#    foreach ($row in $Hash_Scan) {
-#        $fileHash = $row.Hash
-
-#       
-#        $headers = @{
-#           "accept" = "application/json"
-#            "x-apikey" = "ddb821087e5b9e0de5403e8f7d904fa7b5847b79d4369d50b30b882df0024c62"
-#        }
-
-       
-#        $response = Invoke-RestMethod -Uri "https://www.virustotal.com/api/v3/files/$fileHash" -Method GET -Headers $headers
-
-        
-#        Add-Content -Path .\hashes.csv 
-#    }
-#			
-
-$headers=@{}
-$headers.Add("accept", "application/json")
-$headers.Add("x-apikey", "ddb821087e5b9e0de5403e8f7d904fa7b5847b79d4369d50b30b882df0024c62")
-$response = Invoke-RestMethod -Uri 'https://www.virustotal.com/api/v3/files/657B1352D6513BCD840205DA8A98E8ACA70E0954C87CC59EB1317923B705AE2A' -Method GET -Headers $headers
