@@ -25,9 +25,7 @@ function Api_HashVer { 	Write-Host "vamos a hacer un listado de hashes para el r
 			}
 		
 
-# objectivos buscar generar un objetivo dentro de el clubCTF donde se busca hacer un punto fijo 
-# steps que se va a hacer 	
-# 						
+				
 	
 #function File_Show{	Write-Host " please output the option you would like to chose the dir to view files:" 
 #			$direct = Read-Host 
