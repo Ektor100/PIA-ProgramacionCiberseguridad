@@ -1,3 +1,15 @@
+<#
+.SYNOPSIS
+menu de opciones para revicion de ciberseguridad.#>
+<#
+.DESCRIPTION
+con este scrip podras elegir entre diversas opciones para monitoreo de ciberseguridad#>
+<#
+.NOTES
+este menu requiere de diferentes modulos para correr correctamente y solo se podra elegir de la opcion 1 a 5#>
+<#
+.EXAMPLE
+PS C:\> get-help.\main.ps1 -full#>
 New-ModuleManifest -path ".\resourse.psd1" -Rootmodule ".\resourse.psm1" 
 Import-Module ".\resourse.psm1" 
 New-ModuleManifest -path ".\savePassword.psd1" -Rootmodule ".\savePassword.psm1" 
