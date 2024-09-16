@@ -65,5 +65,3 @@ Function Start-PasswordManagement {
 
     Write-Output "El proceso de generar y almacenar contraseñas a finalizado"
 }
-
-Start-PasswordManagement
