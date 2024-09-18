@@ -1,3 +1,4 @@
+Set-StrictMode -Version 3.0
 function File_Show {	Write-Host " please output the option you would like to chose the dir to view files:" 
 			Write-Host "1) view files in dir"
 			Write-Host "2) view hidden files in dir "
