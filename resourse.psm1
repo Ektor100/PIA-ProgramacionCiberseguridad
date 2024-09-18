@@ -1,3 +1,4 @@
+Set-StrivtMode -Version 3.0
 # Function to get CPU usage
 function Get-CPUUsage {
     $cpu = Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average

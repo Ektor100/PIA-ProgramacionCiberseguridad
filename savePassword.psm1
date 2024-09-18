@@ -1,3 +1,4 @@
+Set-StrivtMode -Version 3.0
 $fileOutput = Join-Path (Get-Location) "SecurePasswords.txt"
 
 # Feature to generate strong passwords
