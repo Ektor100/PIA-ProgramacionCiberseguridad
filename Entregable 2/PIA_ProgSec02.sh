@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#honeypot(){
+honeypot(){
 
 
 
@@ -34,7 +34,7 @@ case $opt in
 esac
 
 
-#} #here we are telling  through our bash script for our system to use python and spawn a module called http.server that assists us  in creating a active web service  in our machine 
+} #here we are telling  through our bash script for our system to use python and spawn a module called http.server that assists us  in creating a active web service  in our machine 
 
 #and @ the end were telling it to use the port 80, the command 2>&1 is to say that the  stderr stdout will be redirected and recieved hence forth thats  why  with our pipe que output  and  append the logs to the file if its not  there  it will create it
 
