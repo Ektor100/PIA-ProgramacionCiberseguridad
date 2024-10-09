@@ -1,5 +1,5 @@
-source Honeypot.sh 
-source networkMonitoring.sh
+. ./Honeypot.sh
+. ./networkMonitoring.sh
 
 # Main function menu
 read -p "wich one option 1) Local dir Honeypot 2) Network Monitoring" op
