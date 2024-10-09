@@ -3,7 +3,7 @@
 echo "ADVERTENCIA: El programa le solicitara entrar en modo root para instalar herramientas que falten o ejecutarlas"
 
 
-function mainNetworkMonitoring {
+         mainNetworkMonitoring(){
 
     # Function for missing tools
     if ! command -v tcpdump &> /dev/null; then
