@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Function for missing tools
-function checkAndInstallTools {
-    echo "ADVERTENCIA: El programa le solicitara entrar en modo root para instalar herramientas que falten o ejecutarlas"
+echo "ADVERTENCIA: El programa le solicitara entrar en modo root para instalar herramientas que falten o ejecutarlas"
+
+
+function mainNetworkMonitoring {
+
+    # Function for missing tools
     if ! command -v tcpdump &> /dev/null; then
-        echo "tcpdump no esta instalado. Comenzando instalacian..."
+        echo "tcpdump no esta instalado. Comenzando instalacion..."
         sudo apt update && sudo apt install -y tcpdump
         if [[ $? -eq 0 ]]; then
             echo "tcpdump se ha instalado correctamente."
@@ -16,14 +19,11 @@ function checkAndInstallTools {
         echo "tcpdump ya esta instalado."
     fi
 
-}
 
 
-# Function to show network interfaces
-function selectNetworkInterface {
+    # Function to show network interfaces
     echo "Interfaces de red:"
     ip link show | awk -F: '/^[0-9]+: [^lo]/ {print $2}' | tr -d ' '
-
 
     while true; do
         echo "Ingrese el nombre de la interfaz de red:"
@@ -36,16 +36,18 @@ function selectNetworkInterface {
             echo "Interfaz invalida. Intentelo de nuevo."
         fi
     done
-}
 
 
-function monitorNetworkTraffic {
+
+
+
+    # Function to monitor network traffic with tcpdump
     echo "Iniciando monitoreo de trafico en la interfaz: $networkInterface"
     echo "Mostrando el trafico en tiempo real durante 30 segundos para que puedas observarlo."
 
-    # Variable para la ruta de salida relativa
+
     outputDir="./logs"
-    mkdir -p "$outputDir"  # Crear directorio si no existe
+    mkdir -p "$outputDir"
     timestamp=$(date +"%Y%m%d_%H%M%S")
     outputFile="$outputDir/monitoreo_$timestamp.txt"
 
@@ -61,13 +63,7 @@ function monitorNetworkTraffic {
         destination = $5
 
         printf "%-20s %-7s %-25s %-25s\n", timestamp, proto, source, destination
-    }' | tee "$outputFile"  # Guardar la salida en el archivo txt
+    }' | tee "$outputFile"
 
     echo -e "\nMonitoreo detenido. Los resultados se han guardado en: $outputFile"
-
 }
-
-
-checkAndInstallTools
-selectNetworkInterface
-monitorNetworkTraffic
