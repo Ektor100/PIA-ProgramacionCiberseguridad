@@ -25,5 +25,6 @@ def get_metadata(image_path):
     except Exception as e:
         print(f"Error al procesar la imagen: {str(e)}")
 
-image_path = input("Ingresa la ruta de la imagen:")
-get_metadata(image_path)
+if __name__ == "__main__":
+    image_path = input("Ingresa la ruta de la imagen: ")
+    get_metadata(image_path)
