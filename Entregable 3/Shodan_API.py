@@ -1,7 +1,9 @@
 import shodan
 import time
 
-API_KEY = '2WPutaXpLwqvMYb0f71LrgzlaQZI1uT0'
+
+#Enter your api key inside the quotes
+API_KEY = ''
 api = shodan.Shodan(API_KEY)
 
 def crear_alerta(nombre, red):
