@@ -37,7 +37,8 @@ class AbuseIPDBChecker:
             return {"error": f"API request failed: {str(e)}"}
 
 def main():
-    api_key = 'eebb56446c4aa1e1610307accdb973205610857ef255cb23e3904c433e0f0db1e228157ccc2f84f8'  
+    # Enter your api key inside the quotes
+    api_key = ''  
     checker = AbuseIPDBChecker(api_key)
 
     while True:
