@@ -17,8 +17,6 @@ def perform_task():
     logger.info("Starting the task...")
     try:
        
-        
-        def main_menu():
             while True:
                 print("\n--- Menu principal ---")
                 print("1. Extraer metadatos de una imagen")
